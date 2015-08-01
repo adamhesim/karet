@@ -16,6 +16,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $this->View->render('index/index');
+        //$this->View->render('index/index');
+        echo $this->Must->renderAll('index/index',array('titre1'=>'Bonjour Privilog','csstime'=>time()));
     }
 }

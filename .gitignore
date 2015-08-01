@@ -1,5 +1,5 @@
 tags
 *.swp
 /vendor
-logs/clicmiam.log
+logs/*.log
 application/view/_tmp/__Mustache_*.php

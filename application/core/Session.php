@@ -70,6 +70,13 @@ class Session
      */
     public static function userIsLoggedIn()
     {
-        return (Session::get('user_logged_in') ? true : false);
+        return (self::get('user_logged_in') ? true : false);
+    }
+
+    public static function clearFeedback()
+    {
+        // delete these messages (as they are not needed anymore and we want to avoid to show them twice
+        Session::set('feedback_positive', null);
+        Session::set('feedback_negative', null);
     }
 }

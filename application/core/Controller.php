@@ -10,6 +10,7 @@ class Controller
 {
     /** @var View View The view object */
     public $View;
+    public $Must;
 
     /**
      * Construct the (base) controller. This happens when a real controller is constructed, like in
@@ -27,5 +28,13 @@ class Controller
 
         // create a view object to be able to use it inside a controller, like $this->View->render();
         $this->View = new View();
+        $this->Must = new MustView(array(
+            'loader' => new Mustache_Loader_FilesystemLoader(Config::get('PATH_VIEW'),
+                ['extension' => '.html']),
+            'partials_loader' => new Mustache_Loader_FilesystemLoader(Config::get('PATH_PARTIAL'),
+                ['extension' => '.html']),
+            'cache' => Config::get('PATH_TEMPLATES_CACHE'),
+            'logger' => new MustacheLogger(Mustache_Logger::DEBUG),
+        ));
     }
 }
