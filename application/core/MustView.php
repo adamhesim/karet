@@ -18,6 +18,7 @@ class MustView extends Mustache_Engine {
         $this->data['user_id']= Session::get('user_id');
         $this->data['feedback_positive']= Session::get('feedback_positive');
         $this->data['feedback_negative']= Session::get('feedback_negative');
+        $this->data['user_is_admin'] = Session::get('user_account_type') == '2' ? true : false;
         
         // Merge with controller data
         $data = is_array($tplvars) ? array_merge($this->data,$tplvars) : $this->data;
